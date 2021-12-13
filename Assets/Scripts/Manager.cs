@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Manager : MonoBehaviour {
   public Text text;
+  public Text hint;
 
   private ItemList items;
   private bool[] found;
@@ -16,11 +17,16 @@ public class Manager : MonoBehaviour {
 
   void Update() {
     string ui = "Progress:\n";
-    bool foundAll = true;
+    bool foundAll = true, first = true;
     for(int i = 0; i < transform.childCount; i++) {
       GameObject child = transform.GetChild(i).gameObject;
       if(!found[i]) found[i] = child.GetComponent<TrackingStateMonitor>().isTracked();
-      if(foundAll) foundAll = found[i];
+      foundAll = found[i];
+
+      if(first && !found[i]) {
+        first = false;
+        hint.text = child.GetComponent<Hint>().text;
+      }
       string state = found[i] ? "Found!" : "Missing!";
       ui += $"\t{child.name}: {state}\n";
     }
