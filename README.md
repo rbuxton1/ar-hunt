@@ -10,6 +10,8 @@ The overall objective of this project was to create a modular system in which us
 
 Because there was not a system included in Vuforia to tell if an object is currently being tracked, I created a system that lets me be able to tell if an object is visible to the user or not. This script could be useful in multitudes of situations, like to help with culling. If we had a relatively complex Update function that only needed to be called when the object is being tracked, we could monitor its tracking status and do such to improve the performance of the app when the object is not tracked.
 
+I also included a dynamic system that allows a developer to quickly add new targets to the ones recognized. This means that a large amount of trackers could be added easily so that the users can use images that relate to their models.
+
 ## Differentiating Factors
 
 Personally, I have never seen an AR scavenger hunt in the commercial world so I think that the whole idea is relatively virgin ground. I worked on a different version of an AR scavenger hunt through my work, but that version was done in the web using AR.js and we more geared to providing a tour for its users as it was developed for a museum. I think that the concept should be explored more to see where else this type of interaction could be useful.
